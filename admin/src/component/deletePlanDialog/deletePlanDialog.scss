@@ -1,0 +1,118 @@
+.deletePlanDialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(80, 80, 80, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+
+    .contain {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border-radius: 15px;
+        background-color: #23252b;
+
+        .title {
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .btnContain {
+            display: flex;
+            flex-wrap: wrap;
+    
+            .btn {
+                width: 130px;
+                height: 30px;
+                overflow: hidden;
+                border-radius: 30px;
+                background-color: #13cc68;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                padding: 15px 0;
+                margin-top: 60px;
+                font-weight: 600;
+                margin-bottom: 10px;
+                margin-right: 10px;
+        
+                &:hover {
+                    background-color: rgb(14, 145, 75);
+                }
+                &:active {
+                    background-color: rgb(7, 82, 42);
+                }
+        
+                .innerBtn {
+                    display: flex;
+                    align-items: center;
+        
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        background-color: white;
+                        color: #13cc68;
+                        margin-left: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+    
+            .btnCancel {
+                width: 130px;
+                height: 30px;
+                overflow: hidden;
+                border-radius: 30px;
+                background-color: #b3b3b3;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: rgb(46, 46, 46);
+                border: none;
+                padding: 15px 0;
+                margin-top: 60px;
+                font-weight: 600;
+                margin-bottom: 10px;
+        
+                &:hover {
+                    background-color: rgb(110, 110, 110);
+                }
+                &:active {
+                    background-color: rgb(65, 65, 65);
+                }
+        
+                .innerBtn {
+                    display: flex;
+                    align-items: center;
+        
+                    .icon {
+                        width: 20px;
+                        height: 20px;
+                        border-radius: 10px;
+                        background-color: white;
+                        color: #13cc68;
+                        margin-left: 20px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+}

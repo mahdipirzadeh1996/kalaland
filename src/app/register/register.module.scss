@@ -1,0 +1,253 @@
+.register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    // background: url("../../images/back.png");
+    // background-size: cover;
+    background-image: linear-gradient(to right bottom, #223f36, #1c3531, #192a2b, #172122, #141718);
+    overflow: hidden;
+    overflow-y: auto;
+    color: #fff;
+
+    .regContain {
+        display: flex;
+        flex-direction: row-reverse;
+        width: 80%;
+        height: 90%;
+        overflow: hidden;
+
+        .regRight {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            padding-right: 15px;
+            overflow-y: auto;
+
+            .mainTitle {
+                font-size: 45px;
+                font-weight: 700;
+            }
+            .regTitleContain {
+                display: flex;
+                align-items: center;
+                font-size: 45px;
+                margin-bottom: 1rem;
+
+                .regImage {
+                    width: 60px;
+                    height: 90px;
+                    margin: 0 5px;
+                }
+            }
+
+            .sectionContain {
+                display: flex;
+                flex-direction: row-reverse;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                width: calc(100% - 15px);
+
+                .section {
+                    display: flex;
+                    flex-direction: column;
+                    width: 300px;
+                    align-items: flex-end;
+
+                    .titleContain {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 5px;
+
+                        .titleIcon {
+                            font-size: 25px;
+                        }
+                        .title {
+                            margin-right: 5px;
+                            font-size: 16px;
+                        }
+                    }
+
+                    .regInpContain {
+                        display: flex;
+                        align-items: center;
+                        width: 100%;
+                        height: 30px;
+                        padding: 5px;
+                        border: 2px solid rgba(19, 204, 104, 0.3);
+                        border-radius: 10px;
+                        background-color: rgba(21, 21, 21, 0.44);
+                        margin-bottom: 20px;
+
+                        .regCalBtn {
+                            width: 100%;
+                            text-align: left;
+                            cursor: pointer;
+                            background-color: transparent;
+                            outline: none;
+                            border: none;
+                            color: #fff;
+                        }
+
+                        .regCountry {
+                            width: 100%;
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            color: #fff;
+                        }
+                        .regCountry:focus {
+                            color: #000;
+                        }
+
+                        .regInp {
+                            width: 100%;
+                            background-color: transparent;
+                            border: none;
+                            outline: none;
+                            color: #fff;
+                            text-align: right;
+                        }
+                        .regInp::placeholder {
+                            /* Chrome, Firefox, Opera, Safari 10.1+ */
+                            color: rgba(255, 255, 255, 0.5);
+                            opacity: 1; /* Firefox */
+                        }
+                        .regInp:-ms-input-placeholder {
+                            /* Internet Explorer 10-11 */
+                            color: rgba(255, 255, 255, 0.5);
+                        }
+                        .regInp::-ms-input-placeholder {
+                            /* Microsoft Edge */
+                            color: rgba(255, 255, 255, 0.5);
+                        }
+
+                        .showPass {
+                            cursor: pointer;
+
+                            .regIcon {
+                                margin: 0 5px;
+                            }
+                        }
+                    }
+
+                    .phoneContain {
+                        width: auto;
+                        padding-right: 100px;
+                        margin-bottom: 10px;
+                    }
+                    .buttonClass {
+                        background-color: rgba(21, 21, 21, 0.44);
+                        outline: none;
+                        border: 2px solid rgba(19, 205, 106, 0.3);
+                        border-radius: 10px;
+                    }
+                    .inputClass {
+                        width: 135%;
+                        height: 45px;
+                        padding: 5px;
+                        margin-left: 45px;
+                        background-color: rgba(21, 21, 21, 0.44);
+                        color: #fff;
+                        font-size: 13px;
+                        outline: none;
+                        border: 2px solid rgba(19, 205, 106, 0.3);
+                        border-radius: 10px;
+                    }
+                    .dropdownClass {
+                        width: auto;
+                        background-color: rgba(21, 21, 21, 0.44);
+
+                        input {
+                            width: auto;
+                        }
+                    }
+                    .searchClass {
+                        display: flex;
+                        justify-content: center;
+                        padding: 5px;
+                        width: auto;
+                        background-color: rgb(77, 77, 77);
+                    }
+                }
+            }
+
+            .checkContain {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                cursor: pointer;
+                margin-top: 2rem;
+                margin-bottom: 20px;
+
+                .checkLabel {
+                    color: #fff;
+                    font-size: 13px;
+                    margin-left: 10px;
+
+                    .prev {
+                        color: #0581db;
+                    }
+                }
+            }
+
+            .btn {
+                width: 100px;
+                height: 30px;
+                overflow: hidden;
+                border-radius: 30px;
+                background-color: #13cc68;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                padding: 15px;
+
+                &:hover {
+                    background-color: rgb(14, 145, 75);
+                }
+
+                &:disabled {
+                    background-color: rgb(69, 108, 87);
+                }
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: #13cc68;
+                    margin-left: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .btn:active {
+                background-color: rgb(7, 82, 42);
+            }
+        }
+
+        .regLeft {
+            flex: 0.55;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+
+            .regCover {
+                width: 100%;
+                height: 300px;
+            }
+        }
+        @media (max-width: 915px) {
+            .regLeft {
+                flex: 0;
+            }
+        }
+    }
+}

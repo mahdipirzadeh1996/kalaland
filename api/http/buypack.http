@@ -1,0 +1,43 @@
+###create buypack
+Post http://localhost:3000/user/create-buypack
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "name" : "omol basiri"
+}
+
+### get All buypack
+GET http://localhost:3000/user/buypack-list
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get buypack of user
+GET http://localhost:3000/user/buypack-list-user
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get buypack by id
+GET http://localhost:3000/user/buypack-list/62e8f3be745803487f1d9e66
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### remove buypack
+DELETE  http://localhost:3000/user/remove-buypack/62e8f3be745803487f1d9e66
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### update buypack
+PUT http://localhost:3000/user/edit-buypack/62e8f3be745803487f1d9e66
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "admincheck" : true ,
+    "trades" : 2,
+    "botstatus" : true ,
+    "maxpos" : 2 ,
+    "lotsize": 1
+}
+
+

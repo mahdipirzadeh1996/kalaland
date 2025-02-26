@@ -1,0 +1,15 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 70px;
+    background-image: linear-gradient(to right bottom, #26262e, #202329, #1b1f23, #171b1d, #141718);
+
+    .titleTxt {
+        margin: 10px;
+        color: #fff;
+    }
+}
+.topbar.close {
+    display: none;
+}

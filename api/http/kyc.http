@@ -1,0 +1,40 @@
+###create kyc
+Post http://localhost:3000/admin/create-kyc
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "name" : "omol basiri"
+}
+
+### get All kyc
+GET http://localhost:3000/admin/kyc-list
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get kyc of user
+GET http://localhost:3000/admin/kyc-list-user
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get kyc by id
+GET http://localhost:3000/admin/kyc-list/62d7fabf507dd72654debff0
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### remove kyc
+DELETE  http://localhost:3000/admin/remove-kyc/62d7fabf507dd72654debff0
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### update kyc
+PUT http://localhost:3000/admin/edit-kyc/62d7fabb507dd72654debfed
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "name" : "test update"
+    
+}
+
+

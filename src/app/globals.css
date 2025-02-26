@@ -1,0 +1,65 @@
+body {
+  margin: 0;
+  font-family: na, va;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+div span li h1 button input {
+  font-family: va;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+@font-face {
+  font-family: 'ru';
+  src: local('ru'),
+    url('../../public/assets/fonts/Rubik-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'ir';
+  src: local('ir'),
+    url('../../public/assets/fonts/iranian-sans.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'va';
+  src: local('va'),
+    url('../../public/assets/fonts/Vazir.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'na';
+  src: local('na'),
+    url('../../public/assets/fonts/nazanin.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'fh';
+  src: local('fh'),
+    url('../../public/assets/fonts/freehand.ttf') format('truetype');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'dig';
+  src: local('dig'),
+    url('../../public/assets/fonts/digital-7.ttf') format('truetype');
+  font-style: normal;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    rgba(126, 126, 126, 0.6) 0%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  border-radius: 20px;
+}
