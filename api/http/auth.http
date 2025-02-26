@@ -1,0 +1,27 @@
+###register request
+Post http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "username" : "farzaneh",
+    "email" : "farzaneh@gmail.com",
+    "mobile" : "09159749706",
+    "password" : "654321",
+    "confirm_password" : "654321",
+    "frist_name":"farzaneh"
+    
+}
+
+###   "username" : "aliakbar",
+###    "password" : "123456"
+###login request
+Post http://localhost:3000/auth/login
+Content-Type: application/json
+Authorization: Bearer {{${{$dotenv TOKEN}}}}
+
+{
+    "username" : "farzaneh",
+    "password" : "654321"
+
+    
+}

@@ -1,0 +1,48 @@
+###create package
+Post http://localhost:3000/package/create
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "name" : "pakage3 " ,
+    "type" : "c" ,
+    "expreDate" : "2022:2:6" ,
+    "price" : 2000,
+    "investoryLimit" : 10000 ,
+    "statusSupport" : true ,
+    "statusVS" : true ,
+    "statusAccSt" : true
+
+}
+### get All package
+GET http://localhost:3000/package/list
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get package by id
+GET http://localhost:3000/package/62c8710fd1c7005d2e38f4ee
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### remove package
+DELETE  http://localhost:3000/package/remove/62c87084d1c7005d2e38f4ec
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### update package
+PUT  http://localhost:3000/package/edit/62c871ebd27eb827cda6cc09
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "name" : "pakage 3.2 " ,
+    "type" : "c" ,
+    "expreDate" : "2022:2:6" ,
+    "price" : 2000,
+    "investoryLimit" : 911919191 ,
+    "statusSupport" : true ,
+    "statusVS" : true ,
+    "statusAccSt" : true
+}
+
+

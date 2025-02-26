@@ -1,0 +1,47 @@
+###create notif
+Post http://localhost:3000/admin/create-notif
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "date" : "01/01/2020 " ,
+    "type" : false ,
+    "userID" : ["62c82b956cd21edc794481ad"] ,
+    "title" : "three",
+    "descri" : "some text here" 
+
+}
+### get All notif
+GET http://localhost:3000/admin/notif-list
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get notif of user
+GET http://localhost:3000/admin/notif-list-user
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### get notif by id
+GET http://localhost:3000/admin/notif-list/62d48163830a96155c7ca2a4
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### remove notif
+DELETE  http://localhost:3000/admin/remove-notif/62d48223830a96155c7ca2aa
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+### update notif
+PUT  http://localhost:3000/admin/edit-notif/62d481b0830a96155c7ca2a7
+Content-Type: application/json
+Authorization: Bearer {{$dotenv TOKEN}}
+
+{
+    "date" : "01/01/2020 " ,
+    "type" : false ,
+    "userID" : ["62c82b956cd21edc794481ad"] ,
+    "title" : "edite",
+    "descri" : "someeee" 
+}
+
+

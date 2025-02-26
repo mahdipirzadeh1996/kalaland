@@ -1,0 +1,10 @@
+.with {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-image: linear-gradient(to right bottom, #26262e, #202329, #1b1f23, #171b1d, #141718);
+    height: calc(100vh - 90px);
+    overflow: hidden;
+    overflow-y: auto;
+    padding: 10px;
+}

@@ -1,0 +1,21 @@
+.notFound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right bottom, #26262e, #202329, #1b1f23, #171b1d, #141718);
+
+    h1 {
+        color: #fff;
+        font-size: 40px;
+    }
+    span {
+        color: #fff;
+        font-size: 23px;
+    }
+}

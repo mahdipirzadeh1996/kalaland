@@ -1,0 +1,137 @@
+.editPlan {
+    .inputContain {
+        display: flex;
+        align-items: center;
+        width: calc(100% - 20px);
+        padding: 5px;
+        border: 1px solid rgba(19, 204, 104, 0.3);
+        border-radius: 10px;
+        margin-top: 3rem;
+
+        .switchTitle {
+            font-size: 15px;
+            color: #fff;
+            margin-right: 10px;
+        }
+
+        .loginIcon {
+            margin-right: 10px;
+        }
+
+        .loginInput {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            color: #fff;
+        }
+        .loginInput::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: rgba(255, 255, 255, 0.5);
+            opacity: 1; /* Firefox */
+        }
+        .loginInput:-ms-input-placeholder {
+            /* Internet Explorer 10-11 */
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .loginInput::-ms-input-placeholder {
+            /* Microsoft Edge */
+            color: rgba(255, 255, 255, 0.5);
+        }
+    }
+    @media (max-width: 915px) {
+        .inputContain {
+            width: calc(100% - 20px);
+        }
+    }
+
+    .btnContain {
+        display: flex;
+        flex-wrap: wrap;
+
+        .btn {
+            width: 130px;
+            height: 30px;
+            overflow: hidden;
+            border-radius: 30px;
+            background-color: #13cc68;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: #fff;
+            border: none;
+            padding: 15px 0;
+            margin-top: 60px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            margin-right: 10px;
+    
+            &:hover {
+                background-color: rgb(14, 145, 75);
+            }
+            &:active {
+                background-color: rgb(7, 82, 42);
+            }
+    
+            .innerBtn {
+                display: flex;
+                align-items: center;
+    
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: #13cc68;
+                    margin-left: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+
+        .btnCancel {
+            width: 130px;
+            height: 30px;
+            overflow: hidden;
+            border-radius: 30px;
+            background-color: #b3b3b3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: rgb(46, 46, 46);
+            border: none;
+            padding: 15px 0;
+            margin-top: 60px;
+            font-weight: 600;
+            margin-bottom: 10px;
+    
+            &:hover {
+                background-color: rgb(110, 110, 110);
+            }
+            &:active {
+                background-color: rgb(65, 65, 65);
+            }
+    
+            .innerBtn {
+                display: flex;
+                align-items: center;
+    
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: #13cc68;
+                    margin-left: 20px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+        }
+    }
+}

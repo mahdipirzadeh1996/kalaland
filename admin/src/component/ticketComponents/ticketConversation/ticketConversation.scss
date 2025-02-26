@@ -1,0 +1,402 @@
+.container {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+
+    .ticketConversation1 {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        margin: 0 5px;
+
+        .answerBtn {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #13cc68;
+            padding: 10px;
+            margin-bottom: 2rem;
+            cursor: pointer;
+
+            .iconContain {
+                display: flex;
+                align-items: center;
+
+                .icon {
+                    color: #fff;
+                    margin-right: 5px;
+                }
+            }
+        }
+
+        .answerContain {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            transition: height 0.5s ease-in-out;
+            overflow: hidden;
+
+            .contain {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+
+                .part {
+                    display: flex;
+                    flex-direction: column;
+                    flex: 0.4;
+                    margin-bottom: 10px;
+                }
+                .part2 {
+                    display: flex;
+                    flex-direction: column;
+                    margin-bottom: 10px;
+                }
+
+                @media (max-width: 915px) {
+                    .part {
+                        flex: 0.4 0.4 100%;
+                    }
+                }
+
+                .iconContain {
+                    display: flex;
+                    align-items: center;
+                    color: #fff;
+                    margin-bottom: 10px;
+
+                    .icon {
+                        margin-right: 5px;
+                    }
+                }
+
+                .inputFirst {
+                    color: #fff;
+                    font-family: ru;
+                    border-style: solid;
+                    border-width: 2px;
+                    padding: 5px;
+                    border-radius: 10px;
+                    border-color: rgba(19, 204, 104, 0.3);
+                    background-color: rgba(21, 21, 21, 0.8);
+                }
+                .inputArea {
+                    color: #fff;
+                    font-family: ru;
+                    border-style: solid;
+                    border-width: 2px;
+                    padding: 5px;
+                    border-radius: 10px;
+                    border-color: rgba(19, 204, 104, 0.3);
+                    background-color: rgba(21, 21, 21, 0.8);
+                    resize: none;
+                    outline: none;
+                    font-size: 18px;
+                }
+
+                .inputContain {
+                    display: flex;
+                    height: 30px;
+                    align-items: center;
+                    width: calc(100% - 20px);
+                    padding: 5px;
+                    border-style: solid;
+                    border-width: 1px;
+                    border-color: rgba(255, 255, 255, 0.5);
+                    border-radius: 10px;
+                    margin-bottom: 10px;
+
+                    .input {
+                        width: 100%;
+                        color: #fff;
+                        font-size: 15px;
+                        background-color: transparent;
+                        outline: none;
+                        border: none;
+                    }
+                    .input::placeholder {
+                        /* Chrome, Firefox, Opera, Safari 10.1+ */
+                        color: #575757;
+                        opacity: 1; /* Firefox */
+                    }
+                    .input:-ms-input-placeholder {
+                        /* Internet Explorer 10-11 */
+                        color: #575757;
+                    }
+                    .input::-ms-input-placeholder {
+                        /* Microsoft Edge */
+                        color: #575757;
+                    }
+
+                    .fileBtn {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        font-size: 15px;
+                        width: 100px;
+                        height: 100%;
+                        background-color: #13cc68;
+                        overflow: hidden;
+                        margin-right: 20px;
+                        color: #fff;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        border: none;
+                    }
+                    .fileBtn:hover {
+                        background-color: #0d7c41;
+                    }
+                    .fileBtn:active {
+                        background-color: #084e29;
+                    }
+
+                    .fileTxt {
+                        font-size: 15px;
+                        color: #575757;
+                    }
+                }
+            }
+
+            .footer {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: flex-end;
+                margin-bottom: 10px;
+
+                .sendBtn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100px;
+                    height: 30px;
+                    background-color: #13cc68;
+                    overflow: hidden;
+                    color: #fff;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    border: none;
+                }
+                .sendBtn:hover {
+                    background-color: #0d7c41;
+                }
+                .sendBtn:active {
+                    background-color: #084e29;
+                }
+
+                .cancelBtn {
+                    width: 100px;
+                    height: 30px;
+                    background-color: #919497;
+                    overflow: hidden;
+                    color: #fff;
+                    border-radius: 10px;
+                    cursor: pointer;
+                    border: none;
+                    margin-right: 10px;
+                }
+                .cancelBtn:hover {
+                    background-color: #0a582e;
+                }
+                .cancelBtn:active {
+                    background-color: #073e21;
+                }
+            }
+            @media (max-width: 915px) {
+                .footer {
+                    justify-content: flex-start;
+                }
+            }
+
+            .input {
+                color: #fff;
+                font-family: ru;
+                border-style: solid;
+                border-width: 2px;
+                padding: 5px;
+                border-radius: 10px;
+                border-color: rgba(19, 204, 104, 0.3);
+                background-color: rgba(21, 21, 21, 0.8);
+            }
+        }
+        .answerContain.close {
+            height: 0;
+        }
+
+        .conversationCard {
+            display: flex;
+            flex-wrap: wrap;
+            background-image: linear-gradient(to right bottom, #1a1c20, #1a191c, #181618, #161414, #121111);
+            margin-bottom: 1rem;
+            padding: 15px 20px;
+            cursor: pointer;
+
+            .userContain {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin-right: 2rem;
+                margin-bottom: 10px;
+
+                .profileImg {
+                    display: flex;
+                    width: 80px;
+                    height: 80px;
+                    border-radius: 50%;
+                    border-style: solid;
+                    border-width: 2px;
+                    border-color: #fff;
+                    margin-bottom: 15px;
+                }
+
+                .nameTxt {
+                    font-size: 11px;
+                    font-weight: 600;
+                    color: #fff;
+                    text-transform: uppercase;
+                    font-family: ru;
+                    display: inline-block;
+                    width: 100px;
+                    white-space: nowrap;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis;
+                }
+
+                .typeTxt {
+                    font-size: 13px;
+                    color: #13cc68;
+                    font-family: ru;
+                    margin: 5px 0;
+                }
+
+                .dateTxt {
+                    font-size: 13px;
+                    color: #fff;
+                    font-family: ru;
+                }
+            }
+            @media (max-width: 915px) {
+                .userContain {
+                    width: 100%;
+                }
+            }
+
+            .contentContain {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                .contentTxt {
+                    font-size: 18px;
+                    color: #fff;
+                    font-family: ru;
+                }
+
+                .ipTxt {
+                    font-size: 13px;
+                    color: #fff;
+                    font-family: ru;
+                    margin-top: 1.5rem;
+                }
+            }
+        }
+        button {
+            height: 150%;
+            margin-bottom: 20px;
+        }
+    }
+
+    .ticketConversation2 {
+        flex: 0.5;
+        margin: 0 20px;
+
+        .infoContain {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 20px;
+            overflow: hidden;
+            background-image: linear-gradient(to right bottom, #1a1c20, #1a191c, #181618, #161414, #121111);
+            padding: 1.5rem;
+
+            .infoRow {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                color: #fff;
+                margin-bottom: 1.5rem;
+
+                .infoIcon {
+                    color: #fff;
+                    margin-right: 10px;
+                }
+                .infoTitle {
+                    font-size: 16px;
+                    font-weight: 600;
+                }
+
+                .rowLeft {
+                    flex: 0.6;
+                    font-size: 13px;
+                    font-weight: 600;
+                }
+                .rowRight {
+                    flex: 1;
+                    padding-left: 10px;
+                    font-size: 13px;
+                }
+            }
+
+            .infoBtn {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                height: 40px;
+                background-color: #d74141;
+                overflow: hidden;
+                color: #fff;
+                border-radius: 20px;
+                cursor: pointer;
+                border: none;
+                margin-top: 1.5rem;
+                font-weight: 600;
+                font-size: 13px;
+            }
+            .infoBtn:hover {
+                background-color: #a93535;
+            }
+            .infoBtn:active {
+                background-color: #6a2020;
+            }
+
+            @media (max-width: 915px) {
+                .infoRow {
+                    .infoTitle {
+                        font-size: 15px;
+                    }
+                }
+                .infoBtn {
+                    width: 70%;
+                    font-size: 15px;
+                }
+            }
+
+            .seperator {
+                width: 100%;
+                height: 1px;
+                background-color: rgba(255, 255, 255, 0.08);
+                margin-bottom: 1.5rem;
+            }
+        }
+    }
+    @media (max-width: 915px) {
+        .ticketConversation2 {
+            margin: 0;
+            margin-left: 10px;
+            flex: 1;
+        }
+    }
+}
