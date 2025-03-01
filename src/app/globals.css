@@ -1,49 +1,57 @@
 body {
   margin: 0;
-  font-family: na, va;
+  font-family: byN, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-div span li h1 button input {
-  font-family: va;
+div span li h1 button {
+  font-family: byN;
+}
+input {
+  font-family: byN;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 @font-face {
-  font-family: 'ru';
-  src: local('ru'),
-    url('../../public/assets/fonts/Rubik-Regular.ttf') format('truetype');
+  font-family: "va";
+  src: url(/assets/fonts/Vazir.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
+
 @font-face {
-  font-family: 'ir';
-  src: local('ir'),
-    url('../../public/assets/fonts/iranian-sans.ttf') format('truetype');
+  font-family: "na";
+  src: url(/assets/fonts/nazanin.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
+
 @font-face {
-  font-family: 'va';
-  src: local('va'),
-    url('../../public/assets/fonts/Vazir.ttf') format('truetype');
+  font-family: "by";
+  src: url(/assets/fonts/Yekan.ttf) format("truetype");
+  font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'na';
-  src: local('na'),
-    url('../../public/assets/fonts/nazanin.ttf') format('truetype');
+  font-family: "by";
+  src: url(/assets/fonts/BYekan+Bold.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "byN";
+  src: url(/assets/fonts/YekanBakhFaNum-Medium.woff) format('woff');
+  font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'fh';
-  src: local('fh'),
-    url('../../public/assets/fonts/freehand.ttf') format('truetype');
-  font-style: normal;
-}
-@font-face {
-  font-family: 'dig';
-  src: local('dig'),
-    url('../../public/assets/fonts/digital-7.ttf') format('truetype');
+  font-family: "byN";
+  src: url(/assets/fonts/YekanBakhFaNum-Bold.woff) format('woff.woff');
+  font-weight: bold;
   font-style: normal;
 }
 

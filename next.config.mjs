@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  transpilePackages: ['@nextui-org/react'], // Transpile Chakra UI for compatibility with Next.js
   async redirects() {
     return [
       {

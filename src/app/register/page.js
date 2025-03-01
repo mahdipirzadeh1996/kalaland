@@ -1,7 +1,7 @@
-'use client'
-import React, { useEffect, useState, forwardRef, useContext } from 'react'
-import Checkbox from '@mui/material/Checkbox'
-import { toast, Toaster } from '@/component/customToast/CustomToast'
+"use client";
+import React, { useEffect, useState, forwardRef, useContext } from "react";
+import Checkbox from "@mui/material/Checkbox";
+import { toast, Toaster } from "@/component/customToast/CustomToast";
 import {
   User,
   Sms,
@@ -12,43 +12,43 @@ import {
   Eye,
   EyeSlash,
   ArrowCircleRight,
-} from 'iconsax-react'
-import BounceLoader from 'react-spinners/BounceLoader'
-import { css } from '@emotion/react'
-import { useRouter } from 'next/navigation'
-import Image from 'next/image'
+} from "iconsax-react";
+import BounceLoader from "react-spinners/BounceLoader";
+import { css } from "@emotion/react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-import styles from './register.module.scss'
-import regImage from '../../../public/assets/images/logo.png'
-import regCover from '../../../public/assets/images/regCover.png'
+import styles from "./register.module.scss";
+import regImage from "../../../public/assets/images/logo.png";
+import regCover from "../../../public/assets/images/regCover.png";
 
 const override = css`
   display: block;
-`
+`;
 
 const Register = () => {
-  const [checked, setChecked] = useState(false)
-  const [email, setEmail] = useState(false)
-  const [startDate, setStartDate] = useState(new Date())
-  const [country, setCountry] = useState('')
-  const [showPass, setShowPass] = useState(false)
-  const [showPassC, setShowPassC] = useState(false)
-  const [openPolicy, setOpenPolicy] = useState(false)
-  const [userData, setUserData] = useState(null)
-  const [user, setUser] = useState(false)
+  const [checked, setChecked] = useState(false);
+  const [email, setEmail] = useState(false);
+  const [startDate, setStartDate] = useState(new Date());
+  const [country, setCountry] = useState("");
+  const [showPass, setShowPass] = useState(false);
+  const [showPassC, setShowPassC] = useState(false);
+  const [openPolicy, setOpenPolicy] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [user, setUser] = useState(false);
 
-  const navigation = useRouter()
+  const navigation = useRouter();
 
   // const { user, dispatch, isFetching } = useContext(EmailContext);
 
   useEffect(() => {
     if (user !== null && user) {
-      navigate('/home')
+      navigate("/home");
     }
-  }, [user])
+  }, [user]);
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (userData !== null) {
       if (
@@ -58,52 +58,37 @@ const Register = () => {
         userData.email === undefined ||
         userData.password === undefined ||
         userData.confirm_password === undefined ||
-        userData.name === '' ||
-        userData.family === '' ||
-        userData.mobile === '' ||
-        userData.email === '' ||
-        userData.password === '' ||
-        userData.confirm_password === ''
+        userData.name === "" ||
+        userData.family === "" ||
+        userData.mobile === "" ||
+        userData.email === "" ||
+        userData.password === "" ||
+        userData.confirm_password === ""
       ) {
-        toast.error('لطفا همه ی موارد را تکمیل کنید!')
+        toast.error("لطفا همه ی موارد را تکمیل کنید!");
       } else {
         if (userData.password.length >= 4 && userData.password.length <= 16)
           // sendEmail(setEmail, userData.email, dispatch)
-          setUser(true)
-        else toast.error('تعداد کاراکترهای پسورد باید بین 4 تا 16 عدد باشد!')
+          setUser(true);
+        else toast.error("تعداد کاراکترهای پسورد باید بین 4 تا 16 عدد باشد!");
       }
     } else {
-      toast.error('لطفا همه ی موارد را تکمیل کنید!')
+      toast.error("لطفا همه ی موارد را تکمیل کنید!");
     }
-  }
+  };
 
   const handleChange = (e) => {
-    const value = e.target.value
+    const value = e.target.value;
 
-    setUserData({ ...userData, [e.target.name]: value })
-  }
+    setUserData({ ...userData, [e.target.name]: value });
+  };
 
   return (
     <div className={styles.register}>
       <div className={styles.regContain}>
         <div className={styles.regRight}>
           <span className={styles.mainTitle}>
-            خوش آمدید12 dfdf
-          </span>
-          <span className={styles.mainTitle} style={{ fontFamily: 'ir' }}>
-            ایران آمدید12
-          </span>
-          <span className={styles.mainTitle} style={{ fontFamily: 'va' }}>
-            وزیری آمدید12
-          </span>
-          <span className={styles.mainTitle} style={{ fontFamily: 'na' }}>
-            نازنین آمدید12
-          </span>
-          <span className={styles.mainTitle} style={{ fontFamily: 'fh' }}>
-            فری هند آمدید12
-          </span>
-          <span className={styles.mainTitle} style={{ fontFamily: 'dig' }}>
-            عدد آمدید12
+            خوش آمدید
           </span>
 
           <div className={styles.regTitleContain}>
@@ -210,7 +195,7 @@ const Register = () => {
 
                 <input
                   className={styles.regInp}
-                  type={showPass ? 'text' : 'password'}
+                  type={showPass ? "text" : "password"}
                   name="password"
                   autoComplete="new-password"
                   placeholder="لطفا گذرواژه خود را وارد کنید"
@@ -243,7 +228,7 @@ const Register = () => {
 
                 <input
                   className={styles.regInp}
-                  type={showPassC ? 'text' : 'password'}
+                  type={showPassC ? "text" : "password"}
                   name="confirm_password"
                   autoComplete="new-password"
                   placeholder="لطفا گذرواژه خود را مجددا وارد کنید"
@@ -263,7 +248,7 @@ const Register = () => {
               color="#fff"
               size={20}
               variant="Bold"
-              style={{ marginLeft: '5px' }}
+              style={{ marginLeft: "5px" }}
             />
             {/* {!isFetching ? (
               <>
@@ -294,26 +279,8 @@ const Register = () => {
           />
         </div>
       </div>
-      {/* <Toaster
-        position="top-right"
-        containerStyle={{
-          cursor: 'pointer'
-        }}
-        toastOptions={{
-          onClick: (toast) => {
-            toast.dismiss(toast.id)
-          },
-          style: {
-            direction: 'rtl',
-            textAlign: 'right',
-            borderRadius: '10px',
-            background: '#333',
-            color: '#fff',
-          },
-        }}
-      /> */}
     </div>
-  )
-}
+  );
+};
 
-export default Register
+export default Register;

@@ -2,7 +2,7 @@
 import React, { useState, useContext, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { Sms, Key, Eye, EyeSlash, ArrowCircleRight } from 'iconsax-react'
-import { toast } from 'react-toastify'
+import { toast, Toaster } from '@/component/customToast/CustomToast'
 import BounceLoader from 'react-spinners/BounceLoader'
 import { css } from '@emotion/react'
 import Link from 'next/link'
@@ -13,7 +13,7 @@ import loginImage from '../../../public/assets/images/logo.png'
 import loginCover from '../../../public/assets/images/loginCover.png'
 
 const override = css`
-  display: block;
+  display: block; 
 `
 
 const Login = () => {

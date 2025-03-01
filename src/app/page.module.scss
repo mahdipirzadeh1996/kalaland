@@ -3,7 +3,7 @@
   flex-direction: column;
   width: 100vw;
   height: calc(100vh - 130px);
-  background: url("../images/back.png");
+  background: url("../../public/assets/images/back.png");
   background-size: cover;
   overflow: hidden;
   overflow-y: auto;
@@ -30,9 +30,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
-      .title {
-      }
     }
 
     .imgContain {
