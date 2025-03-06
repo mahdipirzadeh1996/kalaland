@@ -2,7 +2,7 @@ const {
   UserReferralController,
 } = require("../../http/controller/user/user.referral.controller");
 const { verifyAccessToken } = require("../../http/middlewares/autoLogin");
-const { expressValidatiorMaper } = require("../../http/middlewares/chekErrors");
+const { expressValidatorMaper } = require("../../http/middlewares/chekErrors");
 const { mongoIdValidator } = require("../../http/validations/public");
 const router = require("express").Router();
 //          ----------------NOTIF------------------
@@ -22,8 +22,8 @@ router.get(
   verifyAccessToken,
   UserReferralController.showAllPaymentAndWithdraw
 );
-// router.delete("/remove-notif/:id",verifyAccessToken,mongoIdValidator(),expressValidatiorMaper,UserReferralController.removeNotif);
-// router.put("/edit-notif/:id",verifyAccessToken,mongoIdValidator(),expressValidatiorMaper,UserReferralController.updateNotif);
+// router.delete("/remove-notif/:id",verifyAccessToken,mongoIdValidator(),expressValidatorMaper,UserReferralController.removeNotif);
+// router.put("/edit-notif/:id",verifyAccessToken,mongoIdValidator(),expressValidatorMaper,UserReferralController.updateNotif);
 module.exports = {
   UserReferralRoutes: router,
 };

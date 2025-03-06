@@ -1,6 +1,6 @@
 const {UserTicketController } =require('../../http/controller/user/user.ticket.controller')
 const { verifyAccessToken } = require("../../http/middlewares/autoLogin");
-const { expressValidatiorMaper } = require("../../http/middlewares/chekErrors");
+const { expressValidatorMaper } = require("../../http/middlewares/chekErrors");
 const { createTicketValidator } = require("../../http/validations/admin");
 const { uploadfile } = require("../../modules/express-fileuplod");
 const fileupload = require("express-fileupload");
@@ -11,7 +11,7 @@ router.post(
   "/create-ticket",
   verifyAccessToken,
   createTicketValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   UserTicketController.createTicket
 );
 router.post(
@@ -24,42 +24,42 @@ router.get(
   "/ticket-list/:id",
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   UserTicketController.showOneTickGraphLookUp
 );
 router.get(
   "/show-oneTicket/:id",
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   UserTicketController.showOneTicket
 );
 router.get(
   "/close/:id",
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   UserTicketController.closeOneTicket
 );
 router.delete(
   "/remove-ticket/:id",
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   UserTicketController.removeTicket
 );
 router.put(
   "/edit-ticket/:id",
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   UserTicketController.updateTicket
 );
 router.patch(
   "/edit-imagetiket/:id",
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   uploadFile.single("ticket"),
   UserTicketController.uploadTicketImage
 );

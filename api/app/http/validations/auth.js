@@ -1,58 +1,58 @@
 const { body } = require("express-validator");
 const { UserModel } = require("../../models/users");
+
+const regex = /^[\u0600-\u06FFa-zA-Z]+$/;
 function registerValidator() {
   return [
-    body("username")
-      .isLength({ min: 4, max: 25 })
-      .custom(async (value, ctx) => {
-        if (value) {
-          const usernameRegex = /^[a-z]+[a-z0-9\_\.]{2,}/gi;
-          if (usernameRegex.test(value)) {
-            const user = await UserModel.findOne({ username: value });
-            if (user) throw "username exist";
-            return true;
-          }
-          throw "user name is not valid";
-        }
-        throw "user name can not be empty";
-      }),
-    body("email")
+    body("userData.name")
+      .isLength({ min: 3, max: 10 })
+      .withMessage("نام باید بین 3 تا 10 کاراکتر باشد!")
+      .matches(regex)
+      .withMessage("نام به درستی وارد نشده است!"),
+
+    body("userData.family")
+      .isLength({ min: 3, max: 10 })
+      .withMessage("نام خانوادگی باید بین 3 تا 10 کاراکتر باشد!")
+      .matches(regex)
+      .withMessage("نام خانوادگی به درستی وارد نشده است!"),
+
+    body("userData.email")
       .isEmail()
-      .withMessage("enter email corectly")
+      .withMessage("ایمیل را به درستی وارد کنید!")
       .custom(async (email) => {
         const user = await UserModel.findOne({ email });
-        if (user) throw "email exist";
-        return true;
+        if (user) throw new Error("این ایمیل قبلا ثبت شده است!");
       }),
-    body("mobile")
+
+    body("userData.mobile")
       .isMobilePhone("fa-IR")
-      .withMessage("enter mobile")
+      .withMessage("شماره موبایل را به درستی وارد کنید!")
       .custom(async (mobile) => {
         const user = await UserModel.findOne({ mobile });
-        if (user) throw "mobile exist";
-        return true;
+        if (user) throw new Error("این شماره موبایل قبلا ثبت شده است!");
       }),
-    body("password")
-      .isLength({ min: 6, max: 16 })
-      .withMessage("password 6-16 ")
-      .custom((value, ctx) => {
-        if (!value) throw " password is empty";
-        if (value !== ctx?.req?.body?.confirm_password)
-          throw "passs and confirm_password is not equle";
+
+    body("userData.password")
+      .isLength({ min: 4, max: 16 })
+      .withMessage("گذرواژه باید بین ۴ تا ۱۶ کاراکتر باشد!")
+      .custom((value, { req }) => {
+        if (value !== req.body.userData.confirm_password) {
+          throw new Error("گذرواژه ها با هم مطابقت ندارند!");
+        }
         return true;
       }),
   ];
 }
 function loginValidator() {
   return [
-    body("email").isEmail().withMessage("Enter email correctly!!!"),
+    body("email").isEmail().withMessage("ایمیل را به درستی وارد کنید!"),
     body("password")
       .isLength({ min: 4, max: 16 })
-      .withMessage("Password length should be between 4 - 16 !!!"),
+      .withMessage("گذرواژه باید بین ۴ تا ۱۶ کاراکتر باشد!"),
   ];
 }
-function vrifyValidator() {
-  return [body("email").isEmail().withMessage("Enter email correctly!!!")];
+function verifyValidator() {
+  return [body("email").isEmail().withMessage("ایمیل را به درستی وارد کنید!")];
 }
 function phonenumber(inputtxt) {
   var phoneno = /^\+?([0-9]{2})\)?[-. ]?([0-9]{4})[-. ]?([0-9]{4})$/;
@@ -69,7 +69,7 @@ function phonenumberValidator() {
 module.exports = {
   registerValidator,
   loginValidator,
-  vrifyValidator,
+  verifyValidator,
   phonenumber,
-  phonenumberValidator
+  phonenumberValidator,
 };

@@ -1,6 +1,6 @@
 const fileUpload = require("express-fileupload");
 const userController = require("../../http/controller/user/user.controller");
-const { expressValidatiorMaper } = require("../../http/middlewares/chekErrors");
+const { expressValidatorMaper } = require("../../http/middlewares/chekErrors");
 const {
   imageValidator,
   createBuyPackValidator,
@@ -30,19 +30,19 @@ router.post("/getOtpSendMassage", userController.getOtpSendMassage);
 router.post("/getOtp", authController.getOtp);
 router.post("/checkOtp", authController.checkOtp);
 router.post("/refresh-token", userController.refreshToken);
-router.post("/changepassword/", verifyAccessToken, changePasswordValidator(), expressValidatiorMaper, userController.changePassword);
+router.post("/changepassword/", verifyAccessToken, changePasswordValidator(), expressValidatorMaper, userController.changePassword);
 //------------SHOW profile-----------
 router.get("/profile", verifyAccessToken, userController.getProfile);
 router.post("/profile", verifyAccessToken, userController.updateUser);
-router.post("/profile-image", verifyAccessToken, upload_multer.single("image"), imageValidator(), expressValidatiorMaper, userController.uploadProfileImage);
+router.post("/profile-image", verifyAccessToken, upload_multer.single("image"), imageValidator(), expressValidatorMaper, userController.uploadProfileImage);
 //---------------USER PURCHASES-----------------
-router.post("/create-buypack", verifyAccessToken, createBuyPackValidator(), expressValidatiorMaper, userController.createBuyPack);
+router.post("/create-buypack", verifyAccessToken, createBuyPackValidator(), expressValidatorMaper, userController.createBuyPack);
 router.get("/buypack-list", verifyAccessToken, userController.showAllBuyPack);
-router.get("/buypack-list/:id", verifyAccessToken, mongoIdValidator(), expressValidatiorMaper, userController.showOneBuyPack);
+router.get("/buypack-list/:id", verifyAccessToken, mongoIdValidator(), expressValidatorMaper, userController.showOneBuyPack);
 router.get("/buypack-list-user", verifyAccessToken, userController.showOneBuyPackOfUser);
-router.delete("/remove-buypack/:id", verifyAccessToken, mongoIdValidator(), expressValidatiorMaper, userController.removeBuyPack);
-router.put("/edit-buypack/:id", verifyAccessToken, mongoIdValidator(), expressValidatiorMaper, userController.updateBuyPack);
-router.patch("/edit-imagebuypack/:id", verifyAccessToken, fileUpload(), uploadfile, mongoIdValidator(), expressValidatiorMaper, userController.uploadBuyPackImage);
+router.delete("/remove-buypack/:id", verifyAccessToken, mongoIdValidator(), expressValidatorMaper, userController.removeBuyPack);
+router.put("/edit-buypack/:id", verifyAccessToken, mongoIdValidator(), expressValidatorMaper, userController.updateBuyPack);
+router.patch("/edit-imagebuypack/:id", verifyAccessToken, fileUpload(), uploadfile, mongoIdValidator(), expressValidatorMaper, userController.uploadBuyPackImage);
 
 module.exports = {
   userRoutes: router,

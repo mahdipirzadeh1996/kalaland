@@ -1,19 +1,22 @@
 const { UserModel } = require("../../models/users");
 const JWT = require("jsonwebtoken");
 const createError = require("http-errors");
-const { ACCESS_TOKEN_SECRET_KEY, REFRESH_TOKEN_SECRET_KEY } = require("../../utils/constans");
+const {
+  ACCESS_TOKEN_SECRET_KEY,
+  REFRESH_TOKEN_SECRET_KEY,
+} = require("../../utils/constans");
 const redisClient = require("../../utils/init_redis");
 function SignAccessToken(userId) {
   return new Promise(async (resolve, reject) => {
     const user = await UserModel.findById(userId);
     const payload = {
-      mobile: user.mobile,
-      userID: user._id,
+      email: user.email,
+      userId: user._id,
       roles: user.roles,
     };
     const secret = ACCESS_TOKEN_SECRET_KEY;
     const option = {
-      expiresIn: "23h",
+      expiresIn: "10Days",
     };
     JWT.sign(payload, secret, option, (err, token) => {
       if (err) reject(createError.InternalServerError("Server Error "));
@@ -47,7 +50,7 @@ function SignRefreshToken(userId) {
     };
     JWT.sign(payload, secret, option, async (err, token) => {
       if (err) reject(createError.InternalServerError("Server Error "));
-      await redisClient.SETEX(String(userId), (356 * 24 * 60 * 60), token);
+      await redisClient.SETEX(String(userId), 356 * 24 * 60 * 60, token);
 
       resolve(token);
     });

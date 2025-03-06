@@ -119,7 +119,7 @@
  *              example: Bearer YourToken...
  *              value : Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtb2JpbGUiOiIrOTg5Mzc5MzAwNDMyIiwidXNlcklEIjoiNjMxYWVmYTMxODdlNjE4YTY1MDRkMTM2IiwiaWF0IjoxNjYzNDM5MzgyLCJleHAiOjE2NjM1MjIxODJ9.SrnLsuMxLNogXfZHXyjz5qjv-d4_wkqZOvYcMLtA_r0
  *          -   name: email
- *              description: enter emial
+ *              description: enter Email
  *              value : davodbasiri95@gmail.com
  *              in: formData
  *              required: true

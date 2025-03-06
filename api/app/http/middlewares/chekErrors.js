@@ -1,22 +1,19 @@
 const { validationResult } = require("express-validator");
 
-function expressValidatiorMaper(req, res, next) {
-    let messages = {};
-    const result = validationResult(req);
-    if (result?.errors?.length > 0) {
+function expressValidatorMaper(req, res, next) {
+  const result = validationResult(req);
+  if (!result.isEmpty()) {
+    const messages = result.array().reduce((acc, err) => {
+      acc[err.param] = err.msg;
+      return acc;
+    }, {});
+    return res.status(400).json({
+      status: 400,
+      success: false,
+      messages,
+    });
+  }
+  next();
+}
 
-        result?.errors.forEach(err => {
-            messages[err.param] = err.msg
-        });
-        return res.status(400).json({
-            status: 400,
-            success: false,
-            messages
-        });
-    }
-    messages = {};
-    next();
-}
-module.exports = {
-    expressValidatiorMaper
-}
+module.exports = { expressValidatorMaper };

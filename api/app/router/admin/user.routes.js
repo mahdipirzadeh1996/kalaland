@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const { verifyAccessToken } = require('../../http/middlewares/autoLogin')
-const { expressValidatiorMaper } = require('../../http/middlewares/chekErrors')
+const { expressValidatorMaper } = require('../../http/middlewares/chekErrors')
 const { mongoIdValidator } = require('../../http/validations/public')
 const {
   AdminUserController,
@@ -13,28 +13,28 @@ router.get(
   '/user-list/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminUserController.showOneUserById,
 )
 router.delete(
   '/remove-user/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminUserController.removeUser,
 )
 router.put(
   '/edit-user/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminUserController.updateUser,
 )
 router.put(
   '/edit-statusActive/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminUserController.updateStatusActive,
 )
 

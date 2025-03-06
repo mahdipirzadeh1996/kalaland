@@ -1,6 +1,6 @@
 const {UserBasketController} = require("../../http/controller/user/user.basket.controller");
 const { verifyAccessToken } = require("../../http/middlewares/autoLogin");
-const { expressValidatiorMaper } = require("../../http/middlewares/chekErrors");
+const { expressValidatorMaper } = require("../../http/middlewares/chekErrors");
 const { mongoIdValidator } = require("../../http/validations/public");
 const router =require("express").Router();
 //          ----------------BASKET------------------

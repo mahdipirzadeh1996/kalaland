@@ -1,6 +1,10 @@
 import "./globals.css";
-import { HeaderProvider } from "@/context/HeaderContext";
 import DisableRightClick from "@/component/DisableRightClick";
+import InitialLoadTracker from "@/component/initialLoadTracker/InitialLoadTracker";
+
+import { HeaderProvider } from "@/context/HeaderContext";
+import { RegisterProvider } from "@/context/registerContext/RegisterContext";
+import { Toaster } from "@/component/customToast/CustomToast";
 
 export const metadata = {
   title: "Create Next App",
@@ -9,13 +13,19 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <HeaderProvider>
+    <RegisterProvider>
       <html>
         <body>
-          <DisableRightClick />
-          {children}
+          <HeaderProvider>
+            <InitialLoadTracker />
+            <DisableRightClick />
+
+            {children}
+
+            <Toaster position="top-right" />
+          </HeaderProvider>
         </body>
       </html>
-    </HeaderProvider>
+    </RegisterProvider>
   );
 }

@@ -1,57 +1,71 @@
-const authController = require('../../http/controller/auth/auth.controller')
-const { expressValidatiorMaper } = require('../../http/middlewares/chekErrors')
+const authController = require("../../http/controller/auth/auth.controller");
+const { expressValidatorMaper } = require("../../http/middlewares/chekErrors");
 const {
   registerValidator,
   loginValidator,
-  vrifyValidator,
+  verifyValidator,
   phonenumberValidator,
   phonenumber,
-} = require('../../http/validations/auth')
+} = require("../../http/validations/auth");
+const { verifyCookiesAccessToken } = require("../../http/middlewares/autoLogin");
 
-const router = require('express').Router()
+const router = require("express").Router();
 //register
-router.post('/register', expressValidatiorMaper, authController.register)
 router.post(
-  '/sendemail',
-  vrifyValidator(),
-  expressValidatiorMaper,
-  authController.mehdisendEmailOtp,
-)
-router.get('/testemail', expressValidatiorMaper, authController.testEmail)
+  "/register",
+  registerValidator(),
+  expressValidatorMaper,
+  authController.register
+);
 router.post(
-  '/checkEmailOtp',
-  vrifyValidator(),
-  expressValidatiorMaper,
-  authController.mehdicheckOtpEmial,
-)
+  "/sendemail",
+  registerValidator(),
+  expressValidatorMaper,
+  authController.mehdisendEmailOtp
+);
 router.post(
-  '/verifyemail',
-  vrifyValidator(),
-  expressValidatiorMaper,
-  authController.getEmailOtp,
-)
-//router.post("/login", loginValidator(), expressValidatiorMaper, authController.login);
-router.post('/getOtp', authController.getOtp)
-router.post('/checkOtp', authController.checkOtp)
-router.post('/validate', expressValidatiorMaper, authController.validateCode)
-router.post(
-  '/changePass',
-  expressValidatiorMaper,
-  authController.changePassword,
-)
-router.post(
-  '/login',
+  "/login",
   loginValidator(),
-  expressValidatiorMaper,
-  authController.login,
-)
+  expressValidatorMaper,
+  authController.login
+);
+router.get(
+  "/check",
+  verifyCookiesAccessToken,
+  expressValidatorMaper,
+  authController.check
+);
+router.post("/logout", expressValidatorMaper, authController.logout);
+
+router.get("/testemail", expressValidatorMaper, authController.testEmail);
 router.post(
-  '/loginAdmin',
+  "/checkEmailOtp",
+  verifyValidator(),
+  expressValidatorMaper,
+  authController.mehdicheckOtpEmail
+);
+router.post(
+  "/verifyemail",
+  verifyValidator(),
+  expressValidatorMaper,
+  authController.getEmailOtp
+);
+//router.post("/login", loginValidator(), expressValidatorMaper, authController.login);
+router.post("/getOtp", authController.getOtp);
+router.post("/checkOtp", authController.checkOtp);
+router.post("/validate", expressValidatorMaper, authController.validateCode);
+router.post(
+  "/changePass",
+  expressValidatorMaper,
+  authController.changePassword
+);
+router.post(
+  "/loginAdmin",
   loginValidator(),
-  expressValidatiorMaper,
-  authController.loginAdmin,
-)
+  expressValidatorMaper,
+  authController.loginAdmin
+);
 
 module.exports = {
   authRoutes: router,
-}
+};

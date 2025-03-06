@@ -1,6 +1,6 @@
 const createError = require('http-errors')
 const { StatusCodes: HttpSatatus } = require('http-status-codes')
-const { UsersModel } = require('../../../models/users')
+const { UserModel } = require('../../../models/users')
 const { RolesModel } = require('../../../models/roles')
 const Controller = require('../controller')
 const { hashString } = require('../../../modules/function')
@@ -27,7 +27,7 @@ class AdminUserController extends Controller {
         throw createError.Conflict('گذرواژه ها با هم مطابقت ندارند!')
 
       const hash_password = hashString(password)
-      const result = await UsersModel.create({
+      const result = await UserModel.create({
         name,
         family,
         password: hash_password,
@@ -55,7 +55,7 @@ class AdminUserController extends Controller {
 
   async showAllUser(req, res, next) {
     try {
-      const result = await UsersModel.find()
+      const result = await UserModel.find()
       if (!result) throw createError.NotFound('کاربری یافت نشد!')
       return res.status(HttpSatatus.OK).json({
         data: {
@@ -73,7 +73,7 @@ class AdminUserController extends Controller {
   async showOneUserById(req, res, next) {
     try {
       const id = req.params.id
-      const result = await UsersModel.find({ _id: id })
+      const result = await UserModel.find({ _id: id })
       if (!result) throw createError.NotFound('کاربر یافت نشد!')
       return res.status(HttpSatatus.OK).json({
         data: {
@@ -91,7 +91,7 @@ class AdminUserController extends Controller {
   async showOneUserByEmail(req, res, next) {
     try {
       const email = req.params.email
-      const result = await UsersModel.find({ email: email })
+      const result = await UserModel.find({ email: email })
       if (!result) throw createError.NotFound('کاربر یافت نشد!')
       return res.status(HttpSatatus.OK).json({
         data: {
@@ -109,7 +109,7 @@ class AdminUserController extends Controller {
   async showOneUserByMobile(req, res, next) {
     try {
       const mobile = req.params.mobile
-      const result = await UsersModel.find({ mobile: mobile })
+      const result = await UserModel.find({ mobile: mobile })
       if (!result) throw createError.NotFound('کاربر یافت نشد!')
       return res.status(HttpSatatus.OK).json({
         data: {
@@ -127,7 +127,7 @@ class AdminUserController extends Controller {
   async updateUser(req, res, next) {
     try {
       const id = req.params.id
-      const user = await UsersModel.findById(id)
+      const user = await UserModel.findById(id)
       if (!user) throw createError.NotFound('کاربر یافت نشد!')
       const fields = [
         'name',
@@ -148,7 +148,7 @@ class AdminUserController extends Controller {
         if (fields.includes(key)) delete data[key]
         if (nullisData.includes(data[key])) delete data[key]
       })
-      const result = await UsersModel.updateOne({ _id: id }, { $set: data })
+      const result = await UserModel.updateOne({ _id: id }, { $set: data })
       if (result.modifiedCount > 0) {
         return res.status(HttpSatatus.OK).json({
           data: {
@@ -169,7 +169,7 @@ class AdminUserController extends Controller {
   async updateStatusActive(req, res, next) {
     try {
       const id = req.params.id
-      const user = await UsersModel.findById(id)
+      const user = await UserModel.findById(id)
       if (!user) throw createError.NotFound('کاربر یافت نشد!')
       const fields = [
         'name',
@@ -188,7 +188,7 @@ class AdminUserController extends Controller {
         }
         if (nullisData.includes(data[key])) delete data[key]
       })
-      const result = await UsersModel.updateOne({ _id: id }, { $set: data })
+      const result = await UserModel.updateOne({ _id: id }, { $set: data })
       if (result.modifiedCount > 0) {
         return res.status(HttpSatatus.OK).json({
           data: {
@@ -207,9 +207,9 @@ class AdminUserController extends Controller {
   async removeUser(req, res, next) {
     try {
       const id = req.params.id
-      const result = await UsersModel.findOne({ _id: id })
+      const result = await UserModel.findOne({ _id: id })
       if (!result) throw createError.NotFound('کاربر یافت نشد!')
-      const deleteUser = await UsersModel.deleteOne({ _id: id })
+      const deleteUser = await UserModel.deleteOne({ _id: id })
       if (deleteUser.deletedCount == 0)
         throw createError.InternalServerError('متاسفانه کاربر حذف نشد، لطفا مجددا تلاش کنید!')
       return res.status(HttpSatatus.OK).json({

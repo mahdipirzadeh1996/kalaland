@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const { verifyAccessToken } = require('../../http/middlewares/autoLogin')
-const { expressValidatiorMaper } = require('../../http/middlewares/chekErrors')
+const { expressValidatorMaper } = require('../../http/middlewares/chekErrors')
 const { mongoIdValidator } = require('../../http/validations/public')
 const {
   AdminTicketController,
@@ -20,7 +20,7 @@ router.get(
   '/one-ticket/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminTicketController.showOneTicketById,
 )
 
@@ -28,7 +28,7 @@ router.get(
   '/one-first-admin-ticket/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminTicketController.showFirstAdminTicket,
 )
 
@@ -36,7 +36,7 @@ router.put(
   '/edit-ticket/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminTicketController.updateTicket,
 )
 
@@ -44,7 +44,7 @@ router.delete(
   '/remove-ticket/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminTicketController.removeTicket,
 )
 
@@ -52,7 +52,7 @@ router.patch(
   '/close-ticket/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminTicketController.closeTicket,
 )
 
@@ -66,7 +66,7 @@ router.get(
   '/one-conversation/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminTicketController.showOneTicketConversation,
 )
 
@@ -74,7 +74,7 @@ router.patch(
   '/image/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   uploadFile.single('ticket'),
   AdminTicketController.uploadTicketImage,
 )
@@ -106,7 +106,7 @@ router.get(
 //   "/ticket-list/:id",
 //   verifyAccessToken,
 //   mongoIdValidator(),
-//   expressValidatiorMaper,
+//   expressValidatorMaper,
 //   AdminTicketController.showOneTicket
 // );
 // router.get(

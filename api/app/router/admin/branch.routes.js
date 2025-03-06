@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const { verifyAccessToken } = require('../../http/middlewares/autoLogin')
-const { expressValidatiorMaper } = require('../../http/middlewares/chekErrors')
+const { expressValidatorMaper } = require('../../http/middlewares/chekErrors')
 const { mongoIdValidator } = require('../../http/validations/public')
 const {
   AdminBranchController,
@@ -24,7 +24,7 @@ router.put(
   '/edit-branch/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminBranchController.updateBranch,
 )
 
@@ -32,7 +32,7 @@ router.delete(
   '/remove-branch/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminBranchController.removeBranch,
 )
 
@@ -54,7 +54,7 @@ router.put(
   '/edit-subbranch/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminSubBranchController.updateSubBranch,
 )
 
@@ -62,7 +62,7 @@ router.delete(
   '/remove-subbranch/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminSubBranchController.removeSubBranch,
 )
 

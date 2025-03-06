@@ -1,45 +1,76 @@
-'use client'
-import React, { useState, useContext, useEffect } from 'react'
-import { useRouter } from 'next/navigation'
-import { Sms, Key, Eye, EyeSlash, ArrowCircleRight } from 'iconsax-react'
-import { toast, Toaster } from '@/component/customToast/CustomToast'
-import BounceLoader from 'react-spinners/BounceLoader'
-import { css } from '@emotion/react'
-import Link from 'next/link'
-import Image from 'next/image'
+"use client";
+import React, { useState, useContext, useEffect, useRef } from "react";
+import { useRouter } from "next/navigation";
+import { Sms, Key, Eye, EyeSlash, ArrowCircleRight } from "iconsax-react";
+import { toast } from "@/component/customToast/CustomToast";
+import BounceLoader from "react-spinners/BounceLoader";
+import { css } from "@emotion/react";
+import Link from "next/link";
+import Image from "next/image";
 
-import styles from './login.module.scss'
-import loginImage from '../../../public/assets/images/logo.png'
-import loginCover from '../../../public/assets/images/loginCover.png'
+import styles from "./login.module.scss";
+import loginImage from "../../../public/assets/images/logo.png";
+import loginCover from "../../../public/assets/images/loginCover.png";
+
+import { RegisterContext } from "@/context/registerContext/RegisterContext";
+import { loginUser } from "@/context/registerContext/RegisterAction";
 
 const override = css`
-  display: block; 
-`
+  display: block;
+`;
 
 const Login = () => {
-  const [showPass, setShowPass] = useState(false)
-  const [email, setEmail] = useState(false)
-  const [user, setUser] = useState(false)
-  const [userEmail, setUserEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const [password, setPassword] = useState("");
 
+  const { state, dispatch } = useContext(RegisterContext);
+
+  const buttonRef = useRef(null); // Ref for the registration button
   // const { user, isFetching, dispatch } = useContext(EmailContext);
-  const navigate = useRouter()
+  const navigate = useRouter();
 
   useEffect(() => {
-    if (user !== null && user) {
-      navigate.push('/home')
+    if (state.userInfo !== null) {
+      navigate.push("/home");
     }
-  }, [user])
+  }, [state.userInfo, navigate]);
+
+  useEffect(() => {
+      const handleKeyPress = (event) => {
+        if (event.key === "Enter" && !state.isLoading) {
+          if (email) {
+            // If email verification is active, trigger the verify button
+            // verifyRef.current.click();
+          } else {
+            // Otherwise, trigger the registration button
+            buttonRef.current.click();
+          }
+        }
+      };
+  
+      // Attach the event listener to the document
+      document.addEventListener("keydown", handleKeyPress);
+  
+      // Cleanup the event listener on component unmount
+      return () => {
+        document.removeEventListener("keydown", handleKeyPress);
+      };
+    }, [email, state.isLoading]);
 
   const handleLogin = () => {
-    if (userEmail !== '' && password !== '') {
-      // loginUser(userEmail, password, dispatch);
-      setUser(true)
+    if (
+      userEmail === "" ||
+      password === "" ||
+      userEmail === null ||
+      password === null
+    ) {
+      toast.error("لطفا همه بخش ها را کامل کنید!");
     } else {
-      toast.error('لطفا همه بخش ها را کامل کنید!')
+      loginUser(dispatch, userEmail, password, setEmail);
     }
-  }
+  };
 
   return (
     <div className={styles.login}>
@@ -52,7 +83,7 @@ const Login = () => {
             <Image
               className={styles.loginImage}
               src={loginImage}
-              alt={'Login Image'}
+              alt={"Login Image"}
             />
             به
           </div>
@@ -61,7 +92,7 @@ const Login = () => {
             <input
               className={styles.loginInput}
               placeholder="لطفا ایمیل خود را وارد کنید"
-              type={'email'}
+              type={"email"}
               onChange={(e) => setUserEmail(e.target.value)}
             />
             <Sms color="#fff" className={styles.loginIcon} size={35} />
@@ -81,7 +112,7 @@ const Login = () => {
             <input
               className={styles.loginInput}
               placeholder="گذرواژه خود را وارد کنید"
-              type={showPass ? 'text' : 'password'}
+              type={showPass ? "text" : "password"}
               onChange={(e) => setPassword(e.target.value)}
             />
             <Key color="#fff" className={styles.loginIcon} size={35} />
@@ -95,36 +126,28 @@ const Login = () => {
 
           <button
             className={styles.btn}
-            // disabled={isFetching}
+            disabled={state.isLoading}
+            ref={buttonRef}
             onClick={handleLogin}
           >
-            <div className={styles.innerBtn}>
-              ورود
-              <ArrowCircleRight
-                color="#fff"
-                size={20}
-                variant="Bold"
-                style={{ marginLeft: '5px' }}
-              />
-            </div>
-            {/* {!isFetching ? (
-              <div className="innerBtn">
-                Login
+            {!state.isLoading ? (
+              <div className={styles.innerBtn}>
+                ورود
                 <ArrowCircleRight
                   color="#fff"
                   size={20}
                   variant="Bold"
-                  style={{ marginLeft: '5px' }}
+                  style={{ marginLeft: "5px" }}
                 />
               </div>
             ) : (
               <BounceLoader
-                color={'#fff'}
+                color={"#fff"}
                 loading={true}
                 css={override}
                 size={15}
               />
-            )} */}
+            )}
           </button>
         </div>
 
@@ -137,7 +160,7 @@ const Login = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

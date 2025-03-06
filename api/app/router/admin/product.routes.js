@@ -1,7 +1,7 @@
 const router = require('express').Router()
 
 const { verifyAccessToken } = require('../../http/middlewares/autoLogin')
-const { expressValidatiorMaper } = require('../../http/middlewares/chekErrors')
+const { expressValidatorMaper } = require('../../http/middlewares/chekErrors')
 const { mongoIdValidator } = require('../../http/validations/public')
 const {
   AdminProductController,
@@ -24,7 +24,7 @@ router.get(
   '/product-list/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminProductController.showOneProduct,
 )
 
@@ -32,7 +32,7 @@ router.put(
   '/edit-product/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminProductController.updateProduct,
 )
 
@@ -40,7 +40,7 @@ router.delete(
   '/remove-product/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   AdminProductController.removeProductById,
 )
 
@@ -48,7 +48,7 @@ router.patch(
   '/image/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   uploadFile.single('product'),
   AdminProductController.uploadProductImage,
 )
@@ -57,7 +57,7 @@ router.patch(
   '/edit-image/:id',
   verifyAccessToken,
   mongoIdValidator(),
-  expressValidatiorMaper,
+  expressValidatorMaper,
   uploadFile.single('product'),
   AdminProductController.updateImage,
 )

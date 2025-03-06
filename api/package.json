@@ -15,6 +15,7 @@
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
     "coinpayments": "^2.2.0",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "ethereum-qr-code": "^0.3.0",

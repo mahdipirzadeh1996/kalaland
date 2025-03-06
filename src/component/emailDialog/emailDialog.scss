@@ -1,0 +1,206 @@
+.smsDialog {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    padding-top: 5rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(80, 80, 80, 0.4);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    overflow: hidden;
+    overflow-y: auto;
+
+    .dialogContain {
+        width: 18rem;
+        height: 20rem;
+        border-radius: 10px;
+        background-color: #1d2023;
+        position: relative;
+        overflow: hidden;
+
+        .closeBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #fff;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .dialog {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.5s ease-in-out, opacity 1s;
+            padding: 30px 20px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+
+            .title {
+                font-size: 19px;
+                font-weight: 500;
+                margin-bottom: 2rem;
+            }
+            .mainTxt {
+                font-size: 16px;
+                margin-bottom: 1rem;
+
+                .phoneTxt {
+                    color: #13cc68;
+                    display: inline-block;
+                    width: 100px;
+                    white-space: nowrap;
+                    overflow: hidden !important;
+                    text-overflow: ellipsis;
+                }
+            }
+
+            .inpTitleContain {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                margin-bottom: 5px;
+
+                .inpTitle {
+                    font-size: 11px;
+                    margin-left: 5px;
+                }
+            }
+
+            .varifyContain {
+                width: 150px;
+                margin-bottom: 10px;
+            }
+            .varifyChar {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 30px;
+                background-color: #fff;
+                margin: 5px;
+                border-radius: 10px;
+                color: #000;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            .charSelected {
+                border-style: solid;
+                border-width: 3px;
+                border-color: #0581db;
+            }
+
+            .sendAgain {
+                font-size: 11px;
+                color: #0088ea;
+                cursor: pointer;
+                margin-bottom: 2rem;
+            }
+
+            .btnValid {
+                width: 100px;
+                height: 35px;
+                overflow: hidden;
+                border-radius: 30px;
+                background-color: #13cc68;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                color: #fff;
+                border: none;
+                padding: 10px;
+
+                &:hover {
+                    background-color: rgb(14, 145, 75);
+                }
+
+                .icon {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    background-color: white;
+                    color: #13cc68;
+                    margin-left: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+            .btnValid:active {
+                background-color: rgb(7, 82, 42);
+            }
+
+            .passContain {
+                display: flex;
+                align-items: center;
+                width: 100%;
+                padding: 5px;
+                border-style: solid;
+                border-width: 2px;
+                border-color: rgba(19, 204, 104, 0.3);
+                border-radius: 10px;
+                margin-bottom: 10px;
+
+                .loginInput {
+                    width: 100%;
+                    background-color: transparent;
+                    border: none;
+                    outline: none;
+                    color: #fff;
+                }
+                .loginInput::placeholder {
+                    /* Chrome, Firefox, Opera, Safari 10.1+ */
+                    color: rgba(255, 255, 255, 0.5);
+                    opacity: 1; /* Firefox */
+                }
+                .loginInput:-ms-input-placeholder {
+                    /* Internet Explorer 10-11 */
+                    color: rgba(255, 255, 255, 0.5);
+                }
+                .loginInput::-ms-input-placeholder {
+                    /* Microsoft Edge */
+                    color: rgba(255, 255, 255, 0.5);
+                }
+
+                .showPass {
+                    cursor: pointer;
+                }
+            }
+        }
+        .dialog.left {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+        .dialog.right {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+    }
+    @media (max-width: 800px) {
+        .dialogContain {
+            width: 80%;
+            height: 60%;
+        }
+    }
+    @media (max-height: 300px) {
+        .dialogContain {
+            height: 90%;
+        }
+    }
+}
+@media (max-width: 800px) {
+    .smsDialog {
+        padding-top: 20px;
+    }
+}
